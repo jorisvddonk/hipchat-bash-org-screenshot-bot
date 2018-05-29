@@ -8,13 +8,14 @@ libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss
 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget git
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /node_modules
+    && chown -R pptruser:pptruser /home/pptruser
 
 RUN mkdir /app
 WORKDIR /app
 ADD * /app/
 RUN npm install
+
+RUN chown -R pptruser:pptruser /app
 
 USER pptruser
 CMD ["npm", "start"]
