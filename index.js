@@ -11,7 +11,7 @@ app.post("/bash-screenshot", (req, res) => {
 
   var imgur = require("imgur");
   var bashScreenshot = require("bash-screenshotter");
-  bashScreenshot(1)
+  bashScreenshot(1, {args: ['--no-sandbox', '--disable-setuid-sandbox']})
     .then(function(data) {
       return imgur
         .uploadBase64(data[0].toString("base64"))
