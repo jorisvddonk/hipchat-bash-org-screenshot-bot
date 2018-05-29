@@ -11,12 +11,12 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && chown -R pptruser:pptruser /home/pptruser
 
 RUN mkdir /app
+RUN chown pptruser:pptruser /app
+USER pptruser
 WORKDIR /app
+
 ADD * /app/
 RUN npm install
 
-RUN chown -R pptruser:pptruser /app
-
-USER pptruser
 CMD ["npm", "start"]
 EXPOSE 3000/tcp
