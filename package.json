@@ -10,8 +10,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bash-screenshotter": "git://github.com/jorisvddonk/bash-screenshotter.git#7a3846c8859726469579de149c72ba3c456c64a9",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "imgur": "^0.2.1",
     "nodemon": "^1.17.5"
   }
 }
